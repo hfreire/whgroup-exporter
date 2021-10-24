@@ -54,6 +54,7 @@ const parseStock = (html) => {
 const gaugeNames = [
   'physicalStock',
   'reserved',
+  'reservable',
   'inPurchase',
   'inOrder',
   'onTheShelf',

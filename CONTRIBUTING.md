@@ -1,17 +1,17 @@
 # Contributing
-This GitHub repo follows the [GitHub Flow](https://guides.github.com/introduction/flow/) git workflow. In essence, you contribute by making changes in your fork and then generating a pull request of those changes to be merged with the upstream. 
+This GitHub repo follows the [GitHub Flow](https://guides.github.com/introduction/flow/) git workflow. In essence, you contribute by making changes in your fork and then generating a pull request of those changes to be merged with the upstream.
 
 ### How to fork this repo
 You can read more about forking a GitHub repo [here](https://help.github.com/articles/fork-a-repo). Once you've forked this repo, you're now ready to clone the repo in your computer and start hacking and tinkering with its code.
 
 Clone the GitHub repo
 ```
-git clone https://github.com/my-github-username/watch-rtp-play
+git clone https://github.com/my-github-username/whgroup-exporter
 ```
 
 Change current directory
 ```
-cd watch-rtp-play
+cd whgroup-exporter
 ```
 
 Install NPM dependencies
@@ -24,7 +24,7 @@ It's generally a good idea to pull upstream changes and merge them with your for
 
 Add remote upstream
 ```
-git remote add upstream https://github.com/hfreire/watch-rtp-play
+git remote add upstream https://github.com/hfreire/whgroup-exporter
 ```
 
 Fetch from remote upstream master branch
@@ -43,7 +43,7 @@ npm install && npm prune
 ```
 
 ### How to know what to contribute
-The list of outstanding feature requests and bugs can be found in the [GitHub issue tracker](https://github.com/hfreire/watch-rtp-play/issues) of this repo. Please, feel free to propose features or report bugs that are not there.
+The list of outstanding feature requests and bugs can be found in the [GitHub issue tracker](https://github.com/hfreire/whgroup-exporter/issues) of this repo. Please, feel free to propose features or report bugs that are not there.
 
 ### How to style the code
 With the exception rules from [eslint-config-hfreire](https://github.com/hfreire/eslint-config-hfreire), this repo follows the [JavaScript Standard Style](https://standardjs.com/) rules.
@@ -73,9 +73,9 @@ npm run commit
 You can read more about creating a GitHub pull request from a fork [here](https://help.github.com/articles/creating-a-pull-request-from-a-fork).
 
 ### How to get your pull request accepted
-Every pull request is welcomed, but it's important, as well, to have maintainable code and avoid regression bugs while adding features or fixing other bugs. 
+Every pull request is welcomed, but it's important, as well, to have maintainable code and avoid regression bugs while adding features or fixing other bugs.
 
-Once you generate a pull request, GitHub and third-party apps will verify if the changes are suitable to be merged with upstream. [Travis](https://travis-ci.org/hfreire/watch-rtp-play) will verify your changes for style guide violations and failing test cases, while, [Coveralls](https://coveralls.io/github/hfreire/watch-rtp-play) will verify the coverage of the automated test cases against the code.
+Once you generate a pull request, GitHub and third-party apps will verify if the changes are suitable to be merged with upstream. [Travis](https://travis-ci.org/hfreire/whgroup-exporter) will verify your changes for style guide violations and failing test cases, while, [Coveralls](https://coveralls.io/github/hfreire/whgroup-exporter) will verify the coverage of the automated test cases against the code.
 
 You are encouraged to verify your changes by testing the code locally.
 

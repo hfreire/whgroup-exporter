@@ -1,23 +1,20 @@
-# :tv: Watch and :radio: listen 🇵🇹 RTP Play without a :computer: browser
+# Prometheus exporter for WhGroup wine warehouse stock balance
 
-[![](https://github.com/hfreire/watch-rtp-play/workflows/ci/badge.svg)](https://github.com/hfreire/watch-rtp-play/actions?workflow=ci)
-[![](https://github.com/hfreire/watch-rtp-play/workflows/cd/badge.svg)](https://github.com/hfreire/watch-rtp-play/actions?workflow=cd)
-[![Coverage Status](https://coveralls.io/repos/github/hfreire/watch-rtp-play/badge.svg?branch=master)](https://coveralls.io/github/hfreire/watch-rtp-play?branch=master)
-[![Known Vulnerabilities](https://snyk.io/test/github/hfreire/watch-rtp-play/badge.svg)](https://snyk.io/test/github/hfreire/watch-rtp-play)
-[![](https://img.shields.io/github/release/hfreire/watch-rtp-play.svg)](https://github.com/hfreire/watch-rtp-play/releases)
-[![Docker Stars](https://img.shields.io/docker/stars/hfreire/watch-rtp-play.svg)](https://hub.docker.com/r/hfreire/watch-rtp-play/)
-[![Docker Pulls](https://img.shields.io/docker/pulls/hfreire/watch-rtp-play.svg)](https://hub.docker.com/r/hfreire/watch-rtp-play/)
+[![](https://github.com/hfreire/whgroup-exporter/workflows/ci/badge.svg)](https://github.com/hfreire/whgroup-exporter/actions?workflow=ci)
+[![](https://github.com/hfreire/whgroup-exporter/workflows/cd/badge.svg)](https://github.com/hfreire/whgroup-exporter/actions?workflow=cd)
+[![Coverage Status](https://coveralls.io/repos/github/hfreire/whgroup-exporter/badge.svg?branch=master)](https://coveralls.io/github/hfreire/whgroup-exporter?branch=master)
+[![Known Vulnerabilities](https://snyk.io/test/github/hfreire/whgroup-exporter/badge.svg)](https://snyk.io/test/github/hfreire/whgroup-exporter)
+[![](https://img.shields.io/github/release/hfreire/whgroup-exporter.svg)](https://github.com/hfreire/whgroup-exporter/releases)
+[![Docker Stars](https://img.shields.io/docker/stars/hfreire/whgroup-exporter.svg)](https://hub.docker.com/r/hfreire/whgroup-exporter/)
+[![Docker Pulls](https://img.shields.io/docker/pulls/hfreire/whgroup-exporter.svg)](https://hub.docker.com/r/hfreire/whgroup-exporter/)
 
-> Watch 8 TV and listen 14 radio channels on any device that can play [HTTP Live Streaming](https://en.wikipedia.org/wiki/HTTP_Live_Streaming).
-
-<p align="center"><img src="share/github/overview.gif" width="620"></p>
+> Export WhGroup wine warehouse metrics like physical stock and much more [WhGroup](https://whgroup.se/).
 
 ### Features
-* 8 TV channels :tv:
-* 14 radio channels :radio:
+* 8 metrics out-of-the-box: physical stock, reserved, reservable, in purchase, in order, on the shelf, balance 3pl, balance difference 3pl
+* Uses your existing long-lived session cookie to authorize requests to WhGroup Portal - WhCloud.
 * Uses [Request on Steroids](https://github.com/hfreire/request-on-steroids) to rate limit, retry and circuit break outgoing HTTP requests :white_check_mark:
 * Launch :rocket: inside a Docker container :whale: so you don't need to manage the dependencies :raised_hands: :white_check_mark:
-* Deploy on [AWS](https://aws.amazon.com) using an [Antifragile Infrastructure](https://github.com/antifragile-systems/antifragile-infrastructure) that allows you to easily monitor activity and scale :chart_with_upwards_trend: capacity :white_check_mark:
 
 ### How to use
 
@@ -25,30 +22,18 @@
 Using it in your terminal requires [Docker](https://www.docker.com) installed in your system.
 
 ##### Run the Docker image in a container
-Detach from the container and expose port `4543`.
+Detach from the container and expose port `9749`.
 ```
-docker run -d -p "4543:3000" hfreire/watch-rtp-play
+docker run -d -p "9749:3000" hfreire/whgroup-exporter
 ```
 
 ##### Play RTP1 with ffmpeg player
 ```
-ffplay http://localhost:4543/playlist.m3u8?channel=rtp1
-```
-
-##### AirPlay RTP1 to Kodi
-Use [kodi.sh gist](https://gist.github.com/hfreire/5c558dc35ee842c32bda1656f87f302b) to stream RTP1 to a [Kodi](https://kodi.tv) media player.
-```
-kodi.sh localhost:36667 http://localhost:4543/playlist.m3u8?channel=rtp1
-```
-
-##### Cast RTP1 to Chromecast
-Use [castnow](https://github.com/xat/castnow) to stream RTP1 to a [Chromecast](https://www.google.com/chromecast) media player.
-```
-castnow http://192.168.0.1:4543/playlist.m3u8?channel=rtp1
+curl http://localhost:9749/metrics
 ```
 
 #### Available REST API endpoints
-Swagger documentation available at `http://localhost:4543/docs`.
+Swagger documentation available at `http://localhost:9749/docs`.
 
 #### Available usage environment variables
 Variable | Description | Required | Default value
@@ -62,51 +47,23 @@ HEALTHCHECK_PATH | Endpoint for checking app health. | false | `/healthcheck`
 LOG_LEVEL | The log level verbosity. | false | `info`
 ENVIRONMENT | The environment the app is running on. | false | `undefined`
 ROLLBAR_API_KEY | The server API key used to talk with Rollbar. | false | `undefined`
+WHCLOUD_SESSION_COOKIE | WhCloud session cookie to authorize requests. | true | `undefined`
 
 ### How to build
 ##### Clone the GitHub repo
 ```
-git clone https://github.com/hfreire/watch-rtp-play.git
+git clone https://github.com/hfreire/whgroup-exporter.git
 ```
 
 ##### Change current directory
 ```
-cd watch-rtp-play
+cd whgroup-exporter
 ```
 
 ##### Run the NPM script that will build the Docker image
 ```
 npm run build
 ```
-
-### How to deploy
-
-#### Deploy it from your terminal
-Deploying it from your terminal requires [terraform](https://www.terraform.io) installed on your system and an [antifragile infrastructure](https://github.com/antifragile-systems/antifragile-infrastructure) setup available in your [AWS](https://aws.amazon.com) account.
-
-##### Clone the GitHub repo
-```
-git clone https://github.com/hfreire/watch-rtp-play.git
-```
-
-##### Change current directory
-```
-cd watch-rtp-play
-```
-
-##### Run the NPM script that will deploy all functions
-```
-npm run deploy
-```
-
-#### Available deployment environment variables
-Variable | Description | Required | Default value
-:---:|:---:|:---:|:---:
-VERSION | The version of the app. | false | `latest`
-ANTIFRAGILE_STATE_AWS_REGION | The AWS region used for the antifragile state . | false | `undefined`
-ANTIFRAGILE_STATE_AWS_S3_BUCKET | The AWS S3 bucket used for the antifragile state. | false | `undefined`
-ANTIFRAGILE_STATE_AWS_DYNAMODB_TABLE | The AWS DynamoDB table used for the antifragile state. | false | `undefined`
-ANTIFRAGILE_INFRASTRUCTURE_DOMAIN_NAME | The domain used for the antifragile infrastructure. | true | `undefined`
 
 ### How to contribute
 You can contribute either with code (e.g., new features, bug fixes and documentation) or by [donating 5 EUR](https://paypal.me/hfreire/5). You can read the [contributing guidelines](CONTRIBUTING.md) for instructions on how to contribute with code.

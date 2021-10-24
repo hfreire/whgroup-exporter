@@ -7,9 +7,11 @@
 
 const SESSION_COOKIE = process.env.WHCLOUD_SESSION_COOKIE
 
+const { Route } = require('serverful')
+
 const _ = require('lodash')
 
-const { Route } = require('serverful')
+const Boom = require('@hapi/boom')
 
 const Request = require('../whcloud-request')
 const cheerio = require('cheerio')
@@ -72,6 +74,10 @@ class Metrics extends Route {
   }
 
   async handler (req, h) {
+    if (!SESSION_COOKIE) {
+      throw Boom.internal('No session cookie available')
+    }
+
     const options = {
       url: '/reports/StockBalance',
       headers: {
@@ -82,6 +88,11 @@ class Metrics extends Route {
     const { body } = await Request.get(options)
 
     const stock = parseStock(body)
+
+    if (_.isEmpty(stock)) {
+      throw Boom.internal('Unable to retrieve stock')
+    }
+
     stock.forEach((item) => {
       for (const name in gauges) {
         gauges[ name ].set({

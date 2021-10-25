@@ -11,6 +11,10 @@ jobs:
       CI: true
 
     steps:
+      - name: Set additional environment variables
+        run: |
+          echo "VERSION_BUILD_DATE=$(which date)" >> $GITHUB_ENV
+
       - name: Checkout repository
         uses: actions/checkout@v2
         with:
@@ -46,7 +50,7 @@ jobs:
           tags: ${{ github.sha }}
           build-args: |
             NPM_TOKEN=${{ secrets.NPM_TOKEN }}
-            NAME=${{ env.GITHUB_REPOSITORY }}
+            NAME=${{ github.repository }}
             VERSION=${{ github.ref }}
             VERSION_COMMIT=${{ github.sha }}
             VERSION_BUILD_DATE=${{ env.VERSION_BUILD_DATE }}

@@ -13,7 +13,10 @@ jobs:
     steps:
       - name: Set additional environment variables
         run: |
-          echo "VERSION_BUILD_DATE=$(which date)" >> $GITHUB_ENV
+          echo "NAME=${GITHUB_REPOSITORY##*/}" >> $GITHUB_ENV
+          echo "VERSION=${GITHUB_REF##*/}" >> $GITHUB_ENV
+          echo "VERSION_COMMIT=${GITHUB_SHA::8}" >> $GITHUB_ENV
+          echo "VERSION_BUILD_DATE=$(date)" >> $GITHUB_ENV
 
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -47,17 +50,17 @@ jobs:
           context: .
           load: true
           platforms: linux/amd64
-          tags: ${{ github.sha }}
+          tags: ${{ env.VERSION_COMMIT }}
           build-args: |
             NPM_TOKEN=${{ secrets.NPM_TOKEN }}
-            NAME=${{ github.repository }}
-            VERSION=${{ github.ref }}
-            VERSION_COMMIT=${{ github.sha }}
+            NAME=${{ env.NAME }}
+            VERSION=${{ env.VERSION }}
+            VERSION_COMMIT=${{ env.VERSION_COMMIT }}
             VERSION_BUILD_DATE=${{ env.VERSION_BUILD_DATE }}
 
       - name: Test Docker image
         run: |
-          docker run --rm --entrypoint "./test.sh" ${{ github.sha }}
+          docker run --rm --entrypoint "./test.sh" ${{ env.VERSION_COMMIT }}
 
       - name: Submit coveralls test coverage report
         uses: coverallsapp/github-action@v1.1.2

@@ -1,6 +1,6 @@
 {
   "name": "whgroup-exporter",
-  "description": "Prometheus exporter for WhGroup wine warehouse stock balance",
+  "description": "Prometheus exporter for WH Group warehouse stock balance",
   "version": "0.0.0",
   "engines": {
     "node": ">= 10.11"

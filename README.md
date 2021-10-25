@@ -1,4 +1,4 @@
-# Prometheus exporter for WhGroup wine warehouse stock balance
+# Prometheus exporter for WH Group warehouse stock balance
 
 [![](https://github.com/hfreire/whgroup-exporter/workflows/ci/badge.svg)](https://github.com/hfreire/whgroup-exporter/actions?workflow=ci)
 [![](https://github.com/hfreire/whgroup-exporter/workflows/cd/badge.svg)](https://github.com/hfreire/whgroup-exporter/actions?workflow=cd)

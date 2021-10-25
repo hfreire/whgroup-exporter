@@ -44,6 +44,12 @@ jobs:
           load: true
           platforms: linux/amd64
           tags: ${{ github.sha }}
+          build-args: |
+            NPM_TOKEN=${{ secrets.NPM_TOKEN }}
+            NAME=${{ env.GITHUB_REPOSITORY }}
+            VERSION=${{ github.ref }}
+            VERSION_COMMIT=${{ github.sha }}
+            VERSION_BUILD_DATE=${{ env.VERSION_BUILD_DATE }}
 
       - name: Test Docker image
         run: |

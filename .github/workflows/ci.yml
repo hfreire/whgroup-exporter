@@ -102,7 +102,7 @@ jobs:
         env:
           cache-name: cache-coverage
         with:
-          path: ~/.npm
+          path: coverage
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ github.sha }}
 
       - name: Submit coveralls test coverage report
@@ -132,7 +132,7 @@ jobs:
         env:
           cache-name: cache-node-modules
         with:
-          path: coverage
+          path: ~/.npm
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
 
       - name: Check if release should be created

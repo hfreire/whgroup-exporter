@@ -24,10 +24,10 @@ Using it in your terminal requires [Docker](https://www.docker.com) installed in
 ##### Run the Docker image in a container
 Detach from the container and expose port `9749`.
 ```
-docker run -d -p "9749:3000" hfreire/whgroup-exporter
+docker run -d -p "9749:3000" ghcr.io/hfreire/whgroup-exporter
 ```
 
-##### Play RTP1 with ffmpeg player
+##### Use curl to fetch the metrics
 ```
 curl http://localhost:9749/metrics
 ```
@@ -56,19 +56,33 @@ git clone https://github.com/hfreire/whgroup-exporter.git
 ```
 
 ##### Change current directory
+
 ```
 cd whgroup-exporter
 ```
 
-##### Run the NPM script that will build the Docker image
+##### Run the NPM script that will build any required assets
+
 ```
-npm run build
+npm run build --if-present
+```
+
+##### Run the NPM script that will start the server
+
+```
+npm run start
 ```
 
 ### How to contribute
-You can contribute either with code (e.g., new features, bug fixes and documentation) or by [donating 5 EUR](https://paypal.me/hfreire/5). You can read the [contributing guidelines](CONTRIBUTING.md) for instructions on how to contribute with code.
 
-All donation proceedings will go to the [Sverige för UNHCR](https://sverigeforunhcr.se), a swedish partner of the [UNHCR - The UN Refugee Agency](http://www.unhcr.org), a global organisation dedicated to saving lives, protecting rights and building a better future for refugees, forcibly displaced communities and stateless people.
+You can contribute either with code (e.g., new features, bug fixes and documentation) or
+by [donating 5 EUR](https://paypal.me/hfreire/5). You can read the [contributing guidelines](CONTRIBUTING.md) for
+instructions on how to contribute with code.
+
+All donation proceedings will go to the [Sverige för UNHCR](https://sverigeforunhcr.se), a swedish partner of
+the [UNHCR - The UN Refugee Agency](http://www.unhcr.org), a global organisation dedicated to saving lives, protecting
+rights and building a better future for refugees, forcibly displaced communities and stateless people.
 
 ### License
+
 Read the [license](./LICENSE.md) for permissions and limitations.

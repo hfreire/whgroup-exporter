@@ -5,8 +5,6 @@
 [![Coverage Status](https://coveralls.io/repos/github/hfreire/whgroup-exporter/badge.svg?branch=master)](https://coveralls.io/github/hfreire/whgroup-exporter?branch=master)
 [![Known Vulnerabilities](https://snyk.io/test/github/hfreire/whgroup-exporter/badge.svg)](https://snyk.io/test/github/hfreire/whgroup-exporter)
 [![](https://img.shields.io/github/release/hfreire/whgroup-exporter.svg)](https://github.com/hfreire/whgroup-exporter/releases)
-[![Docker Stars](https://img.shields.io/docker/stars/hfreire/whgroup-exporter.svg)](https://hub.docker.com/r/hfreire/whgroup-exporter/)
-[![Docker Pulls](https://img.shields.io/docker/pulls/hfreire/whgroup-exporter.svg)](https://hub.docker.com/r/hfreire/whgroup-exporter/)
 
 > Export WhGroup wine warehouse metrics like physical stock and much more [WhGroup](https://whgroup.se/).
 

@@ -11,6 +11,8 @@ const { Route } = require('serverful')
 
 const _ = require('lodash')
 
+const Logger = require('modern-logger')
+
 const Boom = require('@hapi/boom')
 
 const Request = require('../whcloud-request')
@@ -68,7 +70,7 @@ const gaugeNames = [
 
 class Metrics extends Route {
   constructor () {
-    super('GET', '/metrics', 'Metrics', 'Returns WhGroup stock balance in Prometheus format')
+    super('GET', '/metrics', 'Metrics', 'Returns WH Group warehouse stock balance in Prometheus format')
 
     initGauges(gaugeNames)
   }
@@ -90,6 +92,8 @@ class Metrics extends Route {
     const stock = parseStock(body)
 
     if (_.isEmpty(stock)) {
+      Logger.debug(body)
+
       throw Boom.internal('Unable to retrieve stock')
     }
 

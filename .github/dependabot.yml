@@ -33,3 +33,6 @@ updates:
     commit-message:
       prefix: chore
       include: scope
+    labels:
+      - dependencies
+      - "github-actions"

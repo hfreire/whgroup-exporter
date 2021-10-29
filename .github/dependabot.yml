@@ -3,15 +3,15 @@ version: 2
 updates:
 
   - package-ecosystem: docker
-  directory: "/share/docker"
-  schedule:
-    interval: daily
-    time: "04:00"
-  open-pull-requests-limit: 10
-  commit-message:
-    prefix: fix
-    prefix-development: chore
-    include: scope
+    directory: "/share/docker"
+    schedule:
+      interval: daily
+      time: "04:00"
+    open-pull-requests-limit: 10
+    commit-message:
+      prefix: fix
+      prefix-development: chore
+      include: scope
 
   - package-ecosystem: npm
     directory: "/"
@@ -25,11 +25,11 @@ updates:
       include: scope
 
   - package-ecosystem: "github-actions"
-      directory: "/"
-      schedule:
-        interval: daily
-        time: "04:00"
-      open-pull-requests-limit: 10
-      commit-message:
-        prefix: chore
-        include: scope
+    directory: "/"
+    schedule:
+      interval: daily
+      time: "04:00"
+    open-pull-requests-limit: 10
+    commit-message:
+      prefix: chore
+      include: scope

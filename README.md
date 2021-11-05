@@ -6,7 +6,7 @@
 [![Known Vulnerabilities](https://snyk.io/test/github/hfreire/whgroup-exporter/badge.svg)](https://snyk.io/test/github/hfreire/whgroup-exporter)
 [![](https://img.shields.io/github/release/hfreire/whgroup-exporter.svg)](https://github.com/hfreire/whgroup-exporter/releases)
 
-> Export WhGroup wine warehouse metrics like physical stock and much more [WhGroup](https://whgroup.se/).
+> Export WHGroup warehouse metrics like physical stock and much more [WHGroup](https://whgroup.se/).
 
 ### Features
 * 8 metrics out-of-the-box: physical stock, reserved, reservable, in purchase, in order, on the shelf, balance 3pl, balance difference 3pl

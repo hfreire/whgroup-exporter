@@ -39,7 +39,7 @@
     "npm-merge-driver": "2.3.6",
     "pre-git": "3.17.1",
     "semantic-release": "18.0.1",
-    "snyk": "1.786.0"
+    "snyk": "1.787.0"
   },
   "config": {
     "pre-git": {

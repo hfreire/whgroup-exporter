@@ -16,7 +16,7 @@
   },
   "homepage": "https://github.com/hfreire/whgroup-exporter#readme",
   "dependencies": {
-    "cheerio": "1.0.0-rc.10",
+    "cheerio": "1.0.0-rc.11",
     "health-checkup": "1.0.45",
     "lodash": "4.17.21",
     "modern-logger": "1.5.86",

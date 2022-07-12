@@ -17,7 +17,7 @@ jobs:
           ref: ${{ github.ref }}
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3.3.0
+        uses: actions/setup-node@v3.4.0
         with:
           node-version: ${{ env.NODE_VERSION }}
 
@@ -128,7 +128,7 @@ jobs:
           ref: ${{ github.ref }}
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3.3.0
+        uses: actions/setup-node@v3.4.0
         with:
           node-version: ${{ env.NODE_VERSION }}
 

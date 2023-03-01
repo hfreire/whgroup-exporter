@@ -38,7 +38,7 @@
     "jest": "29.4.3",
     "npm-merge-driver": "2.3.6",
     "pre-git": "3.17.1",
-    "semantic-release": "20.1.0",
+    "semantic-release": "20.1.1",
     "snyk": "1.1110.0"
   },
   "config": {

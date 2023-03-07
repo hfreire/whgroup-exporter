@@ -17,7 +17,7 @@
   "homepage": "https://github.com/hfreire/whgroup-exporter#readme",
   "dependencies": {
     "cheerio": "1.0.0-rc.12",
-    "health-checkup": "1.0.45",
+    "health-checkup": "1.0.52",
     "lodash": "4.17.21",
     "modern-logger": "1.5.86",
     "prom-client": "14.2.0",

@@ -111,7 +111,7 @@ jobs:
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ github.sha }}
 
       - name: Submit coveralls test coverage report
-        uses: coverallsapp/github-action@v2.2.1
+        uses: coverallsapp/github-action@v2.2.3
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 

@@ -22,7 +22,7 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
 
       - name: Cache node modules
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         env:
           cache-name: cache-node-modules
         with:
@@ -41,7 +41,7 @@ jobs:
         run: npm test
 
       - name: Cache coverage
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         env:
           cache-name: cache-coverage
         with:
@@ -103,7 +103,7 @@ jobs:
           ref: ${{ github.ref }}
 
       - name: Cache coverage
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         env:
           cache-name: cache-coverage
         with:
@@ -133,7 +133,7 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
 
       - name: Cache node modules
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         env:
           cache-name: cache-node-modules
         with:

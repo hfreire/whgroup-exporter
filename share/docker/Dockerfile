@@ -1,4 +1,4 @@
-FROM node:21.7.3-alpine AS node
+FROM node:22.0.0-alpine AS node
 
 # Install base utils
 RUN set -x \
